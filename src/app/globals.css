@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -19,8 +24,100 @@
   }
 }
 
+/* Scrollbar total */
+::-webkit-scrollbar {
+  width: 10px;
+  background: transparent; /* fundo transparente */
+}
+
+/* Trilha (fundo da barra) */
+::-webkit-scrollbar-track {
+  background: transparent; /* transparente */
+}
+
+/* O quadradinho (thumb) */
+::-webkit-scrollbar-thumb {
+  background: #3b82f6; /* azul tailwind: blue-500 */
+  border-radius: 10px;  /* arredondado */
+  border: 2px solid transparent; /* efeito de borda */
+  background-clip: padding-box;
+}
+
+/* Thumb ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa; /* azul um pouco mais claro */
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: transparent !important;
+}
+
+
+html, body {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 80px;
+  overflow-x: hidden;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Adicione no final do seu globals.css */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -10px);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Melhorias de tipografia */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', var(--font-geist-sans), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+body {
+  font-family: 'Inter', var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Adicione a fonte Inter no seu layout */
+
+/* Adicione no seu globals.css */
+
+/* Efeito de brilho suave em elementos interativos */
+a:hover, button:hover, [role="button"]:hover {
+  transition: all 0.3s ease;
+}
+
+/* Efeito de brilho em cards ou elementos específicos */
+.glow-on-hover {
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-on-hover:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
 }
