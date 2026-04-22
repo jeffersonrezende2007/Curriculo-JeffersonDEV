@@ -39,8 +39,7 @@ export default function NetworkBackground() {
       targetMouse.y = e.clientY - rect.top;
     };
 
-    const parent = canvas.parentElement || window;
-    parent.addEventListener("mousemove", handleMouseMove as EventListener);
+    window.addEventListener("mousemove", handleMouseMove as EventListener);
 
     class Node {
       x: number;
@@ -135,7 +134,7 @@ export default function NetworkBackground() {
     animate();
 
     return () => {
-      parent.removeEventListener("mousemove", handleMouseMove as EventListener);
+      window.removeEventListener("mousemove", handleMouseMove as EventListener);
       resizeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
