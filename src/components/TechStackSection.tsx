@@ -4,10 +4,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TypewriterHeading from "./TypewriterHeading";
 import NetworkBackground from "./NetworkBackground";
-import { 
-  SiReact, SiTypescript, SiJavascript, SiHtml5, SiCss3, SiChakraui, SiVite, 
+import {
+  SiReact, SiTypescript, SiJavascript, SiHtml5, SiCss3, SiChakraui, SiVite,
   SiPython, SiNodedotjs, SiSupabase, SiClickhouse, SiPostgresql,
-  SiGithub, SiVercel, SiCloudflare 
+  SiGithub, SiVercel, SiCloudflare,
+  SiRailway,
+  SiFirebase,
+  SiNextdotjs
 } from "react-icons/si";
 import { MonitorPlay, Database, Wrench } from "lucide-react";
 
@@ -28,6 +31,7 @@ const techCategories = [
       { name: "CSS3", Icon: SiCss3 },
       { name: "Chakra UI", Icon: SiChakraui },
       { name: "Vite", Icon: SiVite },
+      { name: "Next.js", Icon: SiNextdotjs },
     ]
   },
   {
@@ -40,6 +44,7 @@ const techCategories = [
       { name: "SQL", Icon: SiPostgresql },
       { name: "Supabase", Icon: SiSupabase },
       { name: "ClickHouse", Icon: SiClickhouse },
+      { name: "Firebase", Icon: SiFirebase },
     ]
   },
   {
@@ -49,6 +54,7 @@ const techCategories = [
     skills: [
       { name: "GitHub", Icon: SiGithub },
       { name: "Vercel", Icon: SiVercel },
+      { name: "Railway", Icon: SiRailway },
       { name: "Cloudflare", Icon: SiCloudflare },
       { name: "APIs REST", Icon: null },
     ]
@@ -58,7 +64,7 @@ const techCategories = [
 export default function TechStackSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
-  
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState<string | null>(null);
 
@@ -73,10 +79,10 @@ export default function TechStackSection() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (!sliderRef.current || !containerRef.current) return;
-      
+
       const slider = sliderRef.current;
-      const amountToScroll = slider.scrollWidth - window.innerWidth; 
-      
+      const amountToScroll = slider.scrollWidth - window.innerWidth;
+
       gsap.to(slider, {
         x: -amountToScroll,
         ease: "none",
@@ -89,14 +95,14 @@ export default function TechStackSection() {
           invalidateOnRefresh: true
         }
       });
-      
+
     }, containerRef);
     return () => ctx.revert();
   }, []);
 
   return (
     <section id="tech-stack" ref={containerRef} className="w-full h-screen bg-obsidian overflow-hidden border-t border-ivory/5 flex items-center relative">
-      
+
       {/* Background Canvas Effect BEHIND the Cards */}
       <div className="absolute inset-0 opacity-30 pointer-events-none mix-blend-screen z-0">
         <NetworkBackground />
@@ -110,7 +116,7 @@ export default function TechStackSection() {
           </span>
         </h2>
         <p className="text-ivory/60 max-w-xl text-lg mt-2 text-center">
-          Ferramentas que utilizo diariamente para construir sistemas escaláveis e analisar dados. 
+          Ferramentas que utilizo diariamente para construir sistemas escaláveis e analisar dados.
           <span className="block md:inline mt-2 md:mt-0"> Deslize para ver todas.</span>
         </p>
       </div>
@@ -127,7 +133,7 @@ export default function TechStackSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-obsidian/40 via-obsidian/80 to-obsidian pointer-events-none" />
 
             {/* Magnetic Spotlight Background */}
-            <div 
+            <div
               className="absolute inset-0 z-0 transition-opacity duration-300 pointer-events-none mix-blend-screen"
               style={{
                 opacity: isHovered === category.id ? 1 : 0,
@@ -145,8 +151,8 @@ export default function TechStackSection() {
 
               <div className="flex flex-wrap gap-4 mt-auto justify-center md:justify-start">
                 {category.skills.map((skill) => (
-                  <div 
-                    key={skill.name} 
+                  <div
+                    key={skill.name}
                     className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-obsidian/80 border border-ivory/5 text-ivory/90 font-mono text-sm group/skill hover:bg-champagne/10 hover:border-champagne/30 hover:text-champagne transition-all duration-300 cursor-default shadow-lg"
                   >
                     {skill.Icon && (
