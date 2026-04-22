@@ -1,58 +1,35 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-import NavBar from "@/modules/NavBar/NavBar";
-import Footer from "@/modules/Footer/Footer";
-import { ThemeProvider } from "@/providers/ThemeProvider";
-import { SpotlightProvider } from "@/components/SpotlightProvider";
-
-import BackgroundGrid from "@/components/BackgroundGrid";
-import Spotlight from "@/components/Spotlight";
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const playfair = Playfair_Display({ subsets: ["latin"], style: ["normal", "italic"], variable: "--font-playfair" });
+const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
 
 export const metadata: Metadata = {
-  title: "Jefferson Rezende | Portfólio",
-  description: "Portfólio profissional do desenvolvedor Jefferson Rezende",
+  title: "Jefferson Rezende | Full Stack & Data",
+  description: "Portfólio de Jefferson Rezende - Desenvolvedor Full Stack e Analista de Dados",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body className="text-white antialiased overflow-x-hidden">
-
-        {/* PROVIDER QUE CAPTURA O MOUSE */}
-        <SpotlightProvider>
-
-          {/* OUTROS PROVIDERS */}
-          <ThemeProvider>
-
-            {/* CAMADA DO FUNDO */}
-            <BackgroundGrid />
-
-            {/* SPOTLIGHT GLOBAL */}
-            <div className="fixed inset-0 -z-5">
-              <Spotlight
-                size={600}
-                opacity={0.25}
-                color="rgba(59,130,246,0.5)"
-                className="w-full h-full absolute inset-0"
-              >
-                <div className="w-full h-full" />
-              </Spotlight>
-            </div>
-
-            <NavBar />
-
-            <main className="pt-24 min-h-screen relative z-10">
-              {children}
-            </main>
-
-            <Footer />
-
-          </ThemeProvider>
-        
-        </SpotlightProvider>
-
+    <html lang="pt-BR">
+      <body className={`${inter.variable} ${playfair.variable} ${jetbrains.variable} font-sans bg-obsidian text-ivory antialiased`}>
+        {/* SVG Noise Overlay para textura premium */}
+        <svg
+          className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.04]"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+        </svg>
+        {children}
       </body>
     </html>
   );

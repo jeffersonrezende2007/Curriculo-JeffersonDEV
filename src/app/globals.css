@@ -1,123 +1,46 @@
 @import "tailwindcss";
 
-html,
+@theme {
+  --color-obsidian: #0D0D12;
+  --color-champagne: #C9A84C;
+  --color-ivory: #FAF8F5;
+  --color-slate: #1A1A24;
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-drama: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+}
+
 body {
-  scroll-behavior: smooth;
+  background-color: var(--color-obsidian);
+  color: var(--color-ivory);
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.perspective-1000 {
+  perspective: 1000px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.magnetic-button {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-/* Scrollbar total */
+/* Custom Scrollbar - Glass / Champagne Effect */
 ::-webkit-scrollbar {
   width: 10px;
-  background: transparent; /* fundo transparente */
 }
 
-/* Trilha (fundo da barra) */
 ::-webkit-scrollbar-track {
-  background: transparent; /* transparente */
+  background: var(--color-obsidian);
+  border-left: 1px solid rgba(250, 248, 245, 0.05); /* ivory/5 */
 }
 
-/* O quadradinho (thumb) */
 ::-webkit-scrollbar-thumb {
-  background: #3b82f6; /* azul tailwind: blue-500 */
-  border-radius: 10px;  /* arredondado */
-  border: 2px solid transparent; /* efeito de borda */
-  background-clip: padding-box;
+  background: rgba(201, 168, 76, 0.3); /* champagne/30 */
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  border: 2px solid var(--color-obsidian);
 }
 
-/* Thumb ao passar o mouse */
 ::-webkit-scrollbar-thumb:hover {
-  background: #60a5fa; /* azul um pouco mais claro */
-}
-
-body {
-  background: transparent !important;
-}
-
-
-html, body {
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 80px;
-  overflow-x: hidden;
-}
-
-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-/* Adicione no final do seu globals.css */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translate(-50%, 0);
-  }
-  50% {
-    transform: translate(-50%, -10px);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 1s ease-out forwards;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Melhorias de tipografia */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', var(--font-geist-sans), system-ui, sans-serif;
-  letter-spacing: -0.02em;
-}
-
-body {
-  font-family: 'Inter', var(--font-geist-sans), system-ui, sans-serif;
-}
-
-/* Adicione a fonte Inter no seu layout */
-
-/* Adicione no seu globals.css */
-
-/* Efeito de brilho suave em elementos interativos */
-a:hover, button:hover, [role="button"]:hover {
-  transition: all 0.3s ease;
-}
-
-/* Efeito de brilho em cards ou elementos específicos */
-.glow-on-hover {
-  transition: box-shadow 0.3s ease;
-}
-
-.glow-on-hover:hover {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+  background: rgba(201, 168, 76, 0.6); /* champagne/60 */
 }
