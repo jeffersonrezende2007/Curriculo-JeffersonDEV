@@ -4,6 +4,7 @@ import FeaturesSection from "@/components/FeaturesSection";
 import PhilosophySection from "@/components/PhilosophySection";
 import ProtocolSection from "@/components/ProtocolSection";
 import ContactFooter from "@/components/ContactFooter";
+import TechStackSection from "@/components/TechStackSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <PhilosophySection />
+      <TechStackSection />
       <ProtocolSection />
       <ContactFooter />
     </main>
