@@ -21,9 +21,9 @@ export default function FloatingNav() {
     >
       <div className="text-lg md:text-xl font-bold tracking-tighter text-ivory">JEFFERSON REZENDE</div>
       <div className="hidden md:flex gap-8 text-sm font-mono text-ivory/70">
-        <a href="#features" className="hover:text-champagne transition-colors transform hover:-translate-y-[1px]">/FEATURES</a>
-        <a href="#protocol" className="hover:text-champagne transition-colors transform hover:-translate-y-[1px]">/PROTOCOL</a>
-        <a href="#contact" className="hover:text-champagne transition-colors transform hover:-translate-y-[1px]">/CONTACT</a>
+        <a href="#skills" className="hover:text-champagne transition-colors transform hover:-translate-y-[1px]">/COMPETÊNCIAS</a>
+        <a href="#projects" className="hover:text-champagne transition-colors transform hover:-translate-y-[1px]">/PROJETOS</a>
+        <a href="#contact" className="hover:text-champagne transition-colors transform hover:-translate-y-[1px]">/CONTATO</a>
       </div>
       <a href="/Jefferson Rezende.pdf" download className="text-xs md:text-sm font-medium bg-champagne text-obsidian px-4 md:px-5 py-2 rounded-full hover:scale-105 transition-transform magnetic-button">
         DOWNLOAD CV

@@ -63,8 +63,8 @@ export default function PhilosophySection() {
             </p>
             <p>
               Atuei de forma decisiva no desenvolvimento do <strong>E-Fine Web</strong>, sistema SaaS de conciliação 
-              utilizado em produção por diversas empresas, com grande foco em escalabilidade, organização 
-              massiva de dados e automações.
+              utilizado em produção por diversas empresas. No frontend deste sistema construímos toda a base em <strong className="text-champagne font-mono font-medium mx-1 tracking-wide">JavaScript e TypeScript</strong>, 
+              garantindo interfaces robustas, escalabilidade, organização massiva de dados e automações complexas.
             </p>
             <p>
               Possuo base sólida em lógica de programação, análise financeira e contabilidade, 
