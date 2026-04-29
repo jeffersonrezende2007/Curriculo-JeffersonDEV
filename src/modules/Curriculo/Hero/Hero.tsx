@@ -62,7 +62,7 @@ const Hero: FC<HeroProps> = ({ }) => {
           <span className="mx-2 text-blue-400">•</span>
           Analista de Dados
           <span className="mx-2 text-blue-400">•</span>
-          Criador do E-Fine Web
+          Criador do MarketAdz e E-Fine Web
         </SubTitle>
 
         {/* Descrição com ícone */}
@@ -81,8 +81,8 @@ const Hero: FC<HeroProps> = ({ }) => {
 
           <div className="flex gap-2">
             <SecondaryButton
-              href="/Jefferson Rezende.pdf"
-              download
+              href="/jefferson-rezende-curriculo.pdf"
+              download="jefferson-rezende-curriculo.pdf"
               title="Download PDF"
             >
               <FiDownload className="mr-2" />
@@ -90,10 +90,9 @@ const Hero: FC<HeroProps> = ({ }) => {
             </SecondaryButton>
 
             <SecondaryButton
-              href="/Jefferson Rezende.docx"
-              download
+              href="/jefferson-rezende-curriculo.docx"
+              download="jefferson-rezende-curriculo.docx"
               title="Download Word"
-              className="px-6" // Um pouco menor
             >
               <FiDownload className="mr-2" />
               DOCX
